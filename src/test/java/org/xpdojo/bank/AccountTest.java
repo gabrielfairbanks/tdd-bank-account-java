@@ -47,4 +47,10 @@ public class AccountTest {
     public void withdrawalFromEmptyAccountShouldNotBeAllowed(){
         assertThrows(RuntimeException.class, () -> createEmptyAccount().withdraw(5));
     }
+
+    @Test
+    public void withdrawalCantGoLowerThanZero(){
+        account.deposit(4);
+        assertThrows(RuntimeException.class, () -> account.withdraw(5));
+    }
 }
