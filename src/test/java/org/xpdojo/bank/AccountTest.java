@@ -51,6 +51,8 @@ public class AccountTest {
     @Test
     public void withdrawalCantGoLowerThanZero(){
         account.deposit(4);
-        assertThrows(RuntimeException.class, () -> account.withdraw(5));
+        Exception exception = assertThrows(RuntimeException.class, () -> account.withdraw(5));
+
+        assertThat(exception.getMessage()).contains("Not enough funds to withdraw");
     }
 }
