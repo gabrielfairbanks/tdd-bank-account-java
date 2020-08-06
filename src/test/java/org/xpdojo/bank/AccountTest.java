@@ -28,5 +28,12 @@ public class AccountTest {
         assertThat(account.getBalance()).isEqualTo(2);
     }
 
+    @Test
+    public void withdrawalShouldDecreaseTheBalance(){
+        Account account = new Account();
+        account.withdraw(5);
+        assertThat(account.getBalance()).isEqualTo(-5);
+    }
+
 
 }
