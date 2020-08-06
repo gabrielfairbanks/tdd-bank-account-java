@@ -20,6 +20,10 @@ public class Account {
     }
 
     public void withdraw(int amount) {
-        balance -= amount;
+        int newBalance = balance - amount;
+        if(newBalance < 0){
+            throw new RuntimeException("Not enough funds to withdraw "+amount);
+        }
+        balance = newBalance;
     }
 }
