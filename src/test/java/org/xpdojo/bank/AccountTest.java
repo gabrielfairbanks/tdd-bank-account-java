@@ -20,5 +20,13 @@ public class AccountTest {
         assertThat(account.getBalance()).isEqualTo(1);
     }
 
+    @Test
+    public void multipleDepositsShouldIncreaseTheAmount(){
+        Account account = new Account();
+        account.deposit(1);
+        account.deposit(1);
+        assertThat(account.getBalance()).isEqualTo(2);
+    }
+
 
 }
